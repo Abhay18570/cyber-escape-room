@@ -35,7 +35,7 @@ const RegisterPage = () => {
     <div>
       <label className={`block text-sm font-semibold mb-2 font-cyber ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{label}</label>
       <div className="relative">
-        <Icon className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} />
+        <Icon className={`pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} />
         <input type={type} value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder} className="cyber-input pl-11" />
       </div>
     </div>
@@ -45,7 +45,7 @@ const RegisterPage = () => {
     <div className={`min-h-screen grid-pattern flex items-center justify-center px-4 md:px-8 py-8 lg:py-12 transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-slate-50'}`}>
       <div className="fixed top-4 right-4 z-50"><ThemeToggle /></div>
 
-      <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="w-full max-w-md">
+      <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="relative z-10 w-full max-w-md">
 
         <motion.div initial={{ y: -20 }} animate={{ y: 0 }} className="text-center mb-8">
           <motion.div
@@ -109,9 +109,9 @@ const RegisterPage = () => {
       </motion.div>
 
       <motion.div animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-        className={`fixed top-10 left-10 w-72 h-72 rounded-full border ${isDark ? 'border-emerald-500/10' : 'border-green-500/10'}`} />
+        className={`pointer-events-none fixed top-10 left-10 w-72 h-72 rounded-full border ${isDark ? 'border-emerald-500/10' : 'border-green-500/10'}`} />
       <motion.div animate={{ rotate: -360 }} transition={{ duration: 35, repeat: Infinity, ease: 'linear' }}
-        className={`fixed bottom-10 right-10 w-80 h-80 rounded-full border ${isDark ? 'border-cyan-500/10' : 'border-blue-500/10'}`} />
+        className={`pointer-events-none fixed bottom-10 right-10 w-80 h-80 rounded-full border ${isDark ? 'border-cyan-500/10' : 'border-blue-500/10'}`} />
     </div>
   );
 };

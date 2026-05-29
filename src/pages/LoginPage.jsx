@@ -35,7 +35,7 @@ const LoginPage = () => {
         <ThemeToggle />
       </div>
 
-      <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="w-full max-w-md">
+      <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="relative z-10 w-full max-w-md">
         
         {/* Logo */}
         <motion.div initial={{ y: -20 }} animate={{ y: 0 }} className="text-center mb-8">
@@ -59,7 +59,7 @@ const LoginPage = () => {
             <div>
               <label className={`block text-sm font-semibold mb-2 font-cyber ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>Email Address</label>
               <div className="relative">
-                <Mail className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} />
+                <Mail className={`pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} />
                 <input type="email" value={email} onChange={e => setEmail(e.target.value)}
                   placeholder="agent@cyberdefense.com" className="cyber-input pl-11" />
               </div>
@@ -68,7 +68,7 @@ const LoginPage = () => {
             <div>
               <label className={`block text-sm font-semibold mb-2 font-cyber ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>Password</label>
               <div className="relative">
-                <Lock className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} />
+                <Lock className={`pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} />
                 <input type="password" value={password} onChange={e => setPassword(e.target.value)}
                   placeholder="Enter your password" className="cyber-input pl-11" />
               </div>
@@ -116,9 +116,9 @@ const LoginPage = () => {
 
       {/* Background decorations */}
       <motion.div animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-        className={`fixed top-10 right-10 w-64 h-64 rounded-full border ${isDark ? 'border-cyan-500/10' : 'border-blue-500/10'}`} />
+        className={`pointer-events-none fixed top-10 right-10 w-64 h-64 rounded-full border ${isDark ? 'border-cyan-500/10' : 'border-blue-500/10'}`} />
       <motion.div animate={{ rotate: -360 }} transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-        className={`fixed bottom-10 left-10 w-96 h-96 rounded-full border ${isDark ? 'border-purple-500/10' : 'border-purple-500/10'}`} />
+        className={`pointer-events-none fixed bottom-10 left-10 w-96 h-96 rounded-full border ${isDark ? 'border-purple-500/10' : 'border-purple-500/10'}`} />
     </div>
   );
 };
