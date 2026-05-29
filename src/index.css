@@ -27,14 +27,14 @@
 @layer components {
   /* Dark mode cards (default) */
   .cyber-card {
-    @apply bg-slate-900 border border-slate-700/60 rounded-2xl p-6 shadow-xl;
+    @apply bg-slate-900 border border-slate-700/60 rounded-2xl p-4 sm:p-5 lg:p-6 shadow-xl;
   }
   html.light .cyber-card {
     @apply bg-white border-slate-200 shadow-sm;
   }
 
   .cyber-button {
-    @apply px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105;
+    @apply px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 transform hover:scale-105;
   }
   .cyber-button-primary {
     @apply cyber-button bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40;
@@ -47,7 +47,7 @@
   }
 
   .cyber-input {
-    @apply w-full px-4 py-3 bg-slate-800/80 border-2 border-slate-600 rounded-xl text-slate-100 placeholder-slate-500 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 transition-all;
+    @apply w-full px-4 py-2.5 sm:py-3 bg-slate-800/80 border-2 border-slate-600 rounded-xl text-sm sm:text-base text-slate-100 placeholder-slate-500 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 transition-all;
   }
   html.light .cyber-input {
     @apply bg-white border-slate-300 text-slate-800 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500/20;
@@ -84,14 +84,6 @@
     background-image:
       linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
       linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
-  }
-}
-
-/* Sidebar width compensation for main content */
-@media (min-width: 1024px) {
-  #main-content-area {
-    margin-left: 240px;
-    transition: margin-left 0.3s ease;
   }
 }
 

@@ -29,7 +29,7 @@ const LandingPage = () => {
     <div className={`min-h-screen grid-pattern transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-slate-50'}`}>
       <Navbar />
       {/* Hero Section */}
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 md:px-8 py-12 lg:py-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -53,9 +53,9 @@ const LandingPage = () => {
                   ],
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="p-8 bg-gradient-to-br from-cyber-blue to-cyan-500 rounded-3xl"
+                className="p-5 sm:p-8 bg-gradient-to-br from-cyber-blue to-cyan-500 rounded-3xl"
               >
-                <Shield className="w-24 h-24 text-white" />
+                <Shield className="w-16 h-16 sm:w-24 sm:h-24 text-white" />
               </motion.div>
               <motion.div
                 animate={{ rotate: 360 }}
@@ -70,7 +70,7 @@ const LandingPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="text-7xl font-display font-black mb-6"
+            className="text-4xl sm:text-6xl lg:text-7xl font-display font-black mb-6"
           >
             <span className="glow-text text-glow">CYBER</span>
             <br />
@@ -81,7 +81,7 @@ const LandingPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-2xl text-gray-300 mb-12 font-cyber"
+            className="text-lg sm:text-2xl text-gray-300 mb-10 sm:mb-12 font-cyber"
           >
             Master Cybersecurity Through Interactive Challenges
           </motion.p>
@@ -91,13 +91,13 @@ const LandingPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="flex gap-6 justify-center flex-wrap"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center"
           >
             <Link to="/register">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="cyber-button-primary text-lg px-8 py-4 flex items-center gap-3"
+                className="cyber-button-primary text-sm sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center gap-3"
               >
                 <Zap className="w-6 h-6" />
                 Get Started
@@ -108,7 +108,7 @@ const LandingPage = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="cyber-button bg-cyber-card/80 backdrop-blur-md border-2 border-cyber-blue text-cyber-blue text-lg px-8 py-4 flex items-center gap-3"
+                className="cyber-button bg-cyber-card/80 backdrop-blur-md border-2 border-cyber-blue text-cyber-blue text-sm sm:text-lg px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center gap-3"
               >
                 <Lock className="w-6 h-6" />
                 Sign In
@@ -122,7 +122,7 @@ const LandingPage = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="grid md:grid-cols-3 gap-8 mt-24 max-w-6xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 mt-16 lg:mt-24 max-w-6xl mx-auto"
         >
           {features.map((feature, index) => (
             <motion.div
@@ -140,7 +140,7 @@ const LandingPage = () => {
               >
                 <feature.icon className="w-8 h-8 text-white" />
               </motion.div>
-              <h3 className="text-2xl font-display font-bold mb-3 text-white">
+              <h3 className="text-xl sm:text-2xl font-display font-bold mb-3 text-white">
                 {feature.title}
               </h3>
               <p className="text-gray-400 font-cyber">{feature.description}</p>
@@ -153,20 +153,20 @@ const LandingPage = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.8 }}
-          className="mt-24 text-center"
+          className="mt-16 lg:mt-24 text-center"
         >
           <div className="cyber-card inline-block">
-            <div className="grid grid-cols-3 gap-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-12">
               <div>
-                <div className="text-5xl font-display font-bold glow-text mb-2">6</div>
+                <div className="text-3xl sm:text-5xl font-display font-bold glow-text mb-2">6</div>
                 <div className="text-gray-400 font-cyber">Interactive Games</div>
               </div>
               <div>
-                <div className="text-5xl font-display font-bold text-cyber-green mb-2">800</div>
+                <div className="text-3xl sm:text-5xl font-display font-bold text-cyber-green mb-2">800</div>
                 <div className="text-gray-400 font-cyber">Total Points</div>
               </div>
               <div>
-                <div className="text-5xl font-display font-bold text-cyber-purple mb-2">∞</div>
+                <div className="text-3xl sm:text-5xl font-display font-bold text-cyber-purple mb-2">∞</div>
                 <div className="text-gray-400 font-cyber">Learning Potential</div>
               </div>
             </div>

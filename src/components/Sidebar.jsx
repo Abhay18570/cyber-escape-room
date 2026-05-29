@@ -45,7 +45,7 @@ const Sidebar = () => {
   const sidebarContent = (mobile = false) => (
     <div className={`flex flex-col h-full ${isDark ? 'bg-slate-900' : 'bg-white'}`}>
       {/* Logo */}
-      <div className={`flex items-center gap-3 px-4 py-5 border-b transition-all duration-300 ${isDark ? 'border-slate-700/60' : 'border-slate-200'}`}>
+      <div className={`flex items-center gap-3 px-4 py-4 sm:py-5 border-b transition-all duration-300 ${isDark ? 'border-slate-700/60' : 'border-slate-200'}`}>
         <motion.div
           className="p-2 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl shadow-lg flex-shrink-0"
           whileHover={{ scale: 1.05 }}
@@ -61,7 +61,7 @@ const Sidebar = () => {
               transition={{ duration: 0.2 }}
               className="overflow-hidden"
             >
-              <span className={`font-display font-bold text-sm tracking-widest whitespace-nowrap ${isDark ? 'text-cyan-400' : 'text-blue-600'}`}>
+              <span className={`font-display font-bold text-sm md:text-base tracking-widest whitespace-nowrap ${isDark ? 'text-cyan-400' : 'text-blue-600'}`}>
                 CYBER ESCAPE
               </span>
             </motion.div>
@@ -85,7 +85,7 @@ const Sidebar = () => {
       </div>
 
       {/* User Profile */}
-      <div className={`px-4 py-4 border-b ${isDark ? 'border-slate-700/60' : 'border-slate-200'}`}>
+      <div className={`px-4 py-3 sm:py-4 border-b ${isDark ? 'border-slate-700/60' : 'border-slate-200'}`}>
         <div className="flex items-center gap-3">
           <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 font-display font-bold text-sm bg-gradient-to-br from-cyan-500 to-blue-600 text-white`}>
             {user.username?.[0]?.toUpperCase() || 'U'}
@@ -99,7 +99,7 @@ const Sidebar = () => {
                 transition={{ duration: 0.2 }}
                 className="overflow-hidden min-w-0"
               >
-                <p className={`text-sm font-semibold font-cyber truncate ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>{user.username}</p>
+                <p className={`text-sm md:text-base font-semibold font-cyber truncate ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>{user.username}</p>
                 <p className={`text-xs truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{user.email}</p>
               </motion.div>
             )}
@@ -115,7 +115,7 @@ const Sidebar = () => {
             to={path}
             onClick={() => setMobileOpen(false)}
             className={({ isActive }) => `
-              flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-cyber font-medium transition-all duration-200 group relative
+              flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm md:text-base font-cyber font-medium transition-all duration-200 group relative
               ${isActive
                 ? isDark
                   ? 'bg-cyan-500/15 text-cyan-400 border border-cyan-500/30'
@@ -180,7 +180,7 @@ const Sidebar = () => {
         <button
           onClick={handleLogout}
           className={`
-            w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-cyber font-medium transition-all duration-200 group
+            w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm md:text-base font-cyber font-medium transition-all duration-200 group
             ${isDark ? 'text-slate-400 hover:bg-red-500/10 hover:text-red-400' : 'text-slate-500 hover:bg-red-50 hover:text-red-500'}
           `}
         >
@@ -220,8 +220,9 @@ const Sidebar = () => {
       {/* Mobile Hamburger Button */}
       <button
         onClick={() => setMobileOpen(true)}
+        aria-label="Open navigation menu"
         className={`
-          lg:hidden fixed top-4 left-4 z-40 p-2.5 rounded-xl border shadow-lg transition-colors
+          lg:hidden fixed top-3 left-3 sm:top-4 sm:left-4 z-40 p-2.5 rounded-xl border shadow-lg transition-colors
           ${isDark ? 'bg-slate-900 border-slate-700 text-slate-300 hover:bg-slate-800' : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'}
         `}
       >
@@ -245,7 +246,7 @@ const Sidebar = () => {
               exit={{ x: -280 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className={`
-                lg:hidden fixed left-0 top-0 h-full w-72 z-50 border-r overflow-hidden
+                lg:hidden fixed left-0 top-0 h-full w-[min(18rem,calc(100vw-1rem))] z-50 border-r overflow-hidden shadow-2xl
                 ${isDark ? 'border-slate-700' : 'border-slate-200'}
               `}
             >

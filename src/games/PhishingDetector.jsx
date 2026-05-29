@@ -111,7 +111,7 @@ const PhishingDetector = () => {
     return (
       <AppLayout><div className="min-h-screen px-0">
   
-        <div className="container mx-auto px-4 py-12 flex items-center justify-center min-h-[85vh]">
+        <div className="container mx-auto px-4 md:px-8 py-8 lg:py-12 flex items-center justify-center min-h-[85vh]">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -124,26 +124,26 @@ const PhishingDetector = () => {
             >
               <Trophy className="w-16 h-16 text-white" />
             </motion.div>
-            <h2 className="text-4xl font-display font-bold glow-text mb-2">Round Complete!</h2>
+            <h2 className="text-2xl sm:text-4xl font-display font-bold glow-text mb-2">Round Complete!</h2>
             <p className="text-gray-400 font-cyber mb-8">Phishing Email Detector</p>
-            <div className="grid grid-cols-3 gap-4 mb-8">
-              <div className="bg-cyber-dark/60 rounded-xl p-4 border border-cyber-border">
-                <div className="text-3xl font-display font-bold text-cyber-blue mb-1">{roundSummary.score}</div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">
+              <div className="bg-cyber-dark/60 rounded-xl p-3 sm:p-4 border border-cyber-border">
+                <div className="text-2xl sm:text-3xl font-display font-bold text-cyber-blue mb-1">{roundSummary.score}</div>
                 <div className="text-xs font-cyber text-gray-400 uppercase tracking-wider">Score</div>
               </div>
-              <div className="bg-cyber-dark/60 rounded-xl p-4 border border-cyber-border">
-                <div className={`text-3xl font-display font-bold mb-1 ${feedback.color}`}>{accuracy}%</div>
+              <div className="bg-cyber-dark/60 rounded-xl p-3 sm:p-4 border border-cyber-border">
+                <div className={`text-2xl sm:text-3xl font-display font-bold mb-1 ${feedback.color}`}>{accuracy}%</div>
                 <div className="text-xs font-cyber text-gray-400 uppercase tracking-wider">Accuracy</div>
               </div>
-              <div className="bg-cyber-dark/60 rounded-xl p-4 border border-cyber-border">
-                <div className="text-3xl font-display font-bold text-cyber-green mb-1">{roundSummary.correct}/{ROUND_SIZE}</div>
+              <div className="bg-cyber-dark/60 rounded-xl p-3 sm:p-4 border border-cyber-border">
+                <div className="text-2xl sm:text-3xl font-display font-bold text-cyber-green mb-1">{roundSummary.correct}/{ROUND_SIZE}</div>
                 <div className="text-xs font-cyber text-gray-400 uppercase tracking-wider">Correct</div>
               </div>
             </div>
             <div className="p-4 rounded-xl border border-cyber-border/50 bg-cyber-dark/40 mb-8">
               <p className={`font-cyber font-semibold ${feedback.color}`}>{feedback.msg}</p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
                 onClick={initRound}
                 className="flex-1 cyber-button bg-cyber-card border border-cyber-border text-white flex items-center justify-center gap-2 hover:border-cyber-blue hover:text-cyber-blue transition-colors"
@@ -169,14 +169,14 @@ const PhishingDetector = () => {
   return (
     <AppLayout><div className="min-h-screen px-0">
 
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="container mx-auto px-4 md:px-8 py-6 lg:py-8 max-w-6xl">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
-          <h1 className="text-3xl font-display font-bold glow-text mb-1">Phishing Email Detector</h1>
+          <h1 className="text-2xl sm:text-3xl font-display font-bold glow-text mb-1">Phishing Email Detector</h1>
           <p className="text-gray-400 font-cyber text-sm">Identify malicious emails — protect yourself from phishing attacks</p>
         </motion.div>
 
         <div className="mb-6">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
             <div className="flex items-center gap-3">
               <span className="text-sm font-cyber text-gray-400">Email {currentIndex + 1} of {ROUND_SIZE}</span>
               <span className={`text-xs font-cyber px-2 py-0.5 rounded-full border ${getDifficultyColor(currentEmail.difficulty)}`}>
@@ -217,7 +217,7 @@ const PhishingDetector = () => {
             </div>
 
             <div className="mb-4">
-              <div className="bg-cyber-dark/50 p-4 rounded-xl border border-cyber-border/50">
+              <div className="bg-cyber-dark/50 p-3 sm:p-4 rounded-xl border border-cyber-border/50">
                 <pre className="font-cyber text-sm text-gray-300 whitespace-pre-wrap leading-relaxed">{currentEmail.body}</pre>
               </div>
             </div>
@@ -230,7 +230,7 @@ const PhishingDetector = () => {
             )}
 
             {!showResult && (
-              <div className="grid grid-cols-2 gap-3 mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
                 <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                   onClick={() => handleAnswer('legitimate')}
                   className="cyber-button-success flex items-center justify-center gap-2 py-3"

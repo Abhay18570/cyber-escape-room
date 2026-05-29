@@ -67,7 +67,7 @@ const PasswordCracker = () => {
     return (
       <AppLayout><div className="min-h-screen px-0">
   
-        <div className="container mx-auto px-4 py-12 flex items-center justify-center min-h-[80vh]">
+        <div className="container mx-auto px-4 md:px-8 py-8 lg:py-12 flex items-center justify-center min-h-[80vh]">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -77,22 +77,22 @@ const PasswordCracker = () => {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: 'spring' }}
-              className="inline-block p-6 bg-gradient-to-br from-cyber-green to-emerald-500 rounded-3xl mb-6 shadow-neon-green"
+              className="inline-block p-5 sm:p-6 bg-gradient-to-br from-cyber-green to-emerald-500 rounded-3xl mb-6 shadow-neon-green"
             >
-              <Trophy className="w-20 h-20 text-white" />
+              <Trophy className="w-14 h-14 sm:w-20 sm:h-20 text-white" />
             </motion.div>
             
-            <h2 className="text-4xl font-display font-bold glow-text mb-4">
+            <h2 className="text-2xl sm:text-4xl font-display font-bold glow-text mb-4">
               Mission Complete!
             </h2>
-            <p className="text-2xl text-gray-300 mb-6 font-cyber">
+            <p className="text-lg sm:text-2xl text-gray-300 mb-6 font-cyber">
               Final Score: <span className="text-cyber-green font-bold">100</span> / 100
             </p>
             <p className="text-gray-400 mb-4 font-cyber">
               You now understand password strength!
             </p>
             
-            <div className="bg-cyber-dark/50 p-6 rounded-lg mb-8 text-left">
+            <div className="bg-cyber-dark/50 p-4 sm:p-6 rounded-lg mb-8 text-left">
               <h3 className="font-display font-bold text-lg mb-3 text-cyber-blue">Key Learnings:</h3>
               <ul className="space-y-2 font-cyber text-sm">
                 <li className="flex items-start gap-2">
@@ -134,16 +134,16 @@ const PasswordCracker = () => {
     <AppLayout><div className="min-h-screen px-0">
 
       
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 md:px-8 py-8 lg:py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <h1 className="text-4xl font-display font-bold glow-text mb-2">
+          <h1 className="text-2xl sm:text-4xl font-display font-bold glow-text mb-2">
             Password Strength Simulator
           </h1>
-          <p className="text-gray-400 font-cyber">
+          <p className="text-sm sm:text-base text-gray-400 font-cyber">
             See how quickly different passwords can be cracked
           </p>
         </motion.div>
@@ -156,7 +156,7 @@ const PasswordCracker = () => {
             className="cyber-card"
           >
             {/* Password Display */}
-            <div className="text-center mb-8">
+            <div className="text-center mb-6 sm:mb-8">
               <motion.div
                 animate={{
                   boxShadow: currentPassword.color === 'red' 
@@ -164,17 +164,17 @@ const PasswordCracker = () => {
                     : ['0 0 20px rgba(34, 197, 94, 0.3)', '0 0 40px rgba(34, 197, 94, 0.6)', '0 0 20px rgba(34, 197, 94, 0.3)']
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className={`inline-block p-6 bg-gradient-to-br ${currentPassword.color === 'red' ? 'from-cyber-red to-rose-500' : 'from-cyber-green to-emerald-500'} rounded-2xl mb-6`}
+                className={`inline-block p-4 sm:p-6 bg-gradient-to-br ${currentPassword.color === 'red' ? 'from-cyber-red to-rose-500' : 'from-cyber-green to-emerald-500'} rounded-2xl mb-6`}
               >
-                <currentPassword.icon className="w-16 h-16 text-white" />
+                <currentPassword.icon className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
               </motion.div>
 
-              <h2 className="text-3xl font-display font-bold mb-4">
+              <h2 className="text-xl sm:text-3xl font-display font-bold mb-4">
                 Testing Password: <span className="text-cyber-blue">{currentPassword.strength}</span>
               </h2>
               
-              <div className="bg-cyber-dark/80 p-6 rounded-xl border-2 border-cyber-border inline-block">
-                <code className="text-2xl font-mono text-cyber-blue">{currentPassword.password}</code>
+              <div className="max-w-full bg-cyber-dark/80 p-4 sm:p-6 rounded-xl border-2 border-cyber-border inline-block">
+                <code className="text-base sm:text-2xl font-mono text-cyber-blue break-all">{currentPassword.password}</code>
               </div>
             </div>
 
@@ -184,7 +184,7 @@ const PasswordCracker = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={simulateCracking}
-                className="cyber-button-primary w-full mb-8 flex items-center justify-center gap-3 text-lg"
+                className="cyber-button-primary w-full mb-8 flex items-center justify-center gap-3 text-sm sm:text-lg"
               >
                 <Zap className="w-6 h-6" />
                 Start Brute Force Attack
@@ -197,7 +197,7 @@ const PasswordCracker = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="mb-8"
               >
-                <div className="bg-cyber-dark/80 p-6 rounded-xl border-2 border-cyber-blue">
+                <div className="bg-cyber-dark/80 p-4 sm:p-6 rounded-xl border-2 border-cyber-blue">
                   <div className="flex items-center gap-3 mb-4">
                     <motion.div
                       animate={{ rotate: 360 }}
@@ -205,7 +205,7 @@ const PasswordCracker = () => {
                     >
                       <Zap className="w-6 h-6 text-cyber-blue" />
                     </motion.div>
-                    <span className="font-cyber font-semibold text-lg">Attempting to crack password...</span>
+                    <span className="font-cyber font-semibold text-sm sm:text-lg">Attempting to crack password...</span>
                   </div>
                   
                   <div className="space-y-2 font-mono text-sm text-cyber-blue mb-4">
@@ -257,10 +257,10 @@ const PasswordCracker = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 2.5 }}
-                className={`p-6 rounded-xl border-2 ${currentPassword.color === 'red' ? 'bg-cyber-red/10 border-cyber-red' : 'bg-cyber-green/10 border-cyber-green'} mb-8`}
+                className={`p-4 sm:p-6 rounded-xl border-2 ${currentPassword.color === 'red' ? 'bg-cyber-red/10 border-cyber-red' : 'bg-cyber-green/10 border-cyber-green'} mb-8`}
               >
                 <div className="text-center mb-4">
-                  <div className={`text-5xl font-display font-bold mb-2 ${currentPassword.color === 'red' ? 'text-cyber-red' : 'text-cyber-green'}`}>
+                  <div className={`text-3xl sm:text-5xl font-display font-bold mb-2 ${currentPassword.color === 'red' ? 'text-cyber-red' : 'text-cyber-green'}`}>
                     {currentPassword.crackTime}
                   </div>
                   <div className="text-gray-300 font-cyber">Time to crack this password</div>
@@ -269,7 +269,7 @@ const PasswordCracker = () => {
             )}
 
             {/* Vulnerabilities */}
-            <div className="bg-cyber-dark/50 p-6 rounded-lg">
+            <div className="bg-cyber-dark/50 p-4 sm:p-6 rounded-lg">
               <h3 className="font-display font-bold text-lg mb-4 text-white">Analysis:</h3>
               <ul className="space-y-2">
                 {currentPassword.vulnerabilities.map((vulnerability, index) => (

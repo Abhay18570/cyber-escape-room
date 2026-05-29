@@ -132,7 +132,7 @@ const PasswordCreator = () => {
     return (
       <AppLayout><div className="min-h-screen px-0">
   
-        <div className="container mx-auto px-4 py-12 flex items-center justify-center min-h-[85vh]">
+        <div className="container mx-auto px-4 md:px-8 py-8 lg:py-12 flex items-center justify-center min-h-[85vh]">
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
             className="cyber-card text-center max-w-xl w-full"
           >
@@ -141,7 +141,7 @@ const PasswordCreator = () => {
             >
               <Trophy className="w-16 h-16 text-white" />
             </motion.div>
-            <h2 className="text-4xl font-display font-bold glow-text mb-2">Excellent Work!</h2>
+            <h2 className="text-2xl sm:text-4xl font-display font-bold glow-text mb-2">Excellent Work!</h2>
             <p className="text-gray-400 font-cyber mb-6">You created a strong password!</p>
             <div className="bg-cyber-dark/50 p-5 rounded-xl border border-cyber-border mb-6">
               <p className="text-gray-400 font-cyber text-sm mb-3">Your strong password:</p>
@@ -152,7 +152,7 @@ const PasswordCreator = () => {
             <p className="text-gray-400 mb-8 font-cyber text-sm">
               Remember: Use unique passwords for each account and consider a password manager!
             </p>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
                 onClick={() => navigate('/dashboard')}
                 className="flex-1 cyber-button-primary flex items-center justify-center gap-2"
@@ -172,10 +172,10 @@ const PasswordCreator = () => {
   return (
     <AppLayout><div className="min-h-screen px-0">
 
-      <div className="container mx-auto px-4 py-8 max-w-5xl">
+      <div className="container mx-auto px-4 md:px-8 py-6 lg:py-8 max-w-5xl">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
-          <h1 className="text-3xl font-display font-bold glow-text mb-1">Password Strength Simulator</h1>
-          <p className="text-gray-400 font-cyber text-sm">Build a strong password and understand what makes it secure</p>
+          <h1 className="text-2xl sm:text-3xl font-display font-bold glow-text mb-1">Password Strength Simulator</h1>
+          <p className="text-gray-400 font-cyber text-sm sm:text-base">Build a strong password and understand what makes it secure</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-6">
@@ -193,7 +193,7 @@ const PasswordCreator = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Type your password here..."
-                  className="cyber-input pr-28 text-lg font-mono"
+                  className="cyber-input pr-24 sm:pr-28 text-sm sm:text-lg font-mono"
                 />
                 <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
                   <button onClick={handleCopy} disabled={!password}
@@ -238,7 +238,7 @@ const PasswordCreator = () => {
                 </div>
               </div>
 
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                   onClick={handleGenerate}
                   className="flex-1 cyber-button bg-gradient-to-r from-cyber-purple to-purple-400 text-white flex items-center justify-center gap-2 shadow-neon-purple"
@@ -276,7 +276,7 @@ const PasswordCreator = () => {
               whileTap={{ scale: isReadyToSubmit ? 0.97 : 1 }}
               onClick={handleComplete}
               disabled={!isReadyToSubmit}
-              className={`w-full flex items-center justify-center gap-2 text-lg py-4 rounded-xl font-semibold transition-all ${
+              className={`w-full flex items-center justify-center gap-2 text-sm sm:text-lg py-3 sm:py-4 rounded-xl font-semibold transition-all ${
                 isReadyToSubmit
                   ? 'cyber-button-success shadow-neon-green'
                   : 'bg-cyber-dark/60 text-gray-500 border border-cyber-border cursor-not-allowed'

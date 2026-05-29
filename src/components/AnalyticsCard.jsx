@@ -45,15 +45,15 @@ const AnalyticsCard = ({ icon: Icon, label, value, sub, accent = 'blue', delay =
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.4 }}
       className={`
-        rounded-2xl p-5 border transition-all duration-300 group hover:-translate-y-1
+        rounded-2xl p-4 sm:p-5 border transition-all duration-300 group hover:-translate-y-1 shadow-sm
         ${isDark
-          ? 'bg-slate-900 border-slate-700/60 hover:border-slate-600'
+          ? 'bg-slate-900 border-slate-700/60 hover:border-slate-600 shadow-slate-950/30'
           : 'bg-white border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md'}
       `}
     >
-      <div className="flex items-start justify-between mb-4">
-        <div className={`p-2.5 bg-gradient-to-br ${a.bg} rounded-xl shadow-lg ${a.shadow}`}>
-          <Icon className="w-5 h-5 text-white" />
+      <div className="flex items-start justify-between mb-3 sm:mb-4">
+        <div className={`p-2 sm:p-2.5 bg-gradient-to-br ${a.bg} rounded-xl shadow-lg ${a.shadow}`}>
+          <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
         </div>
         {sub && (
           <span className={`text-xs font-cyber font-semibold px-2 py-1 rounded-lg border ${a.badge}`}>
@@ -61,10 +61,10 @@ const AnalyticsCard = ({ icon: Icon, label, value, sub, accent = 'blue', delay =
           </span>
         )}
       </div>
-      <div className={`text-2xl font-display font-bold mb-1 ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>
+      <div className={`text-xl sm:text-2xl font-display font-bold mb-1 ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>
         {value}
       </div>
-      <div className={`text-sm font-cyber ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+      <div className={`text-xs sm:text-sm font-cyber leading-snug ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
         {label}
       </div>
     </motion.div>

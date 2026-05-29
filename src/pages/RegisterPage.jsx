@@ -42,7 +42,7 @@ const RegisterPage = () => {
   );
 
   return (
-    <div className={`min-h-screen grid-pattern flex items-center justify-center px-4 py-12 transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-slate-50'}`}>
+    <div className={`min-h-screen grid-pattern flex items-center justify-center px-4 md:px-8 py-8 lg:py-12 transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-slate-50'}`}>
       <div className="fixed top-4 right-4 z-50"><ThemeToggle /></div>
 
       <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="w-full max-w-md">
@@ -51,15 +51,15 @@ const RegisterPage = () => {
           <motion.div
             animate={{ boxShadow: ['0 0 20px rgba(16,185,129,0.3)', '0 0 40px rgba(16,185,129,0.6)', '0 0 20px rgba(16,185,129,0.3)'] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="inline-block p-4 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl mb-4">
-            <Shield className="w-12 h-12 text-white" />
+            className="inline-block p-3 sm:p-4 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl mb-4">
+            <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
           </motion.div>
-          <h1 className="text-4xl font-display font-bold glow-text mb-2">Join the Mission</h1>
-          <p className={`font-cyber ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Create your cyber agent profile</p>
+          <h1 className="text-2xl sm:text-4xl font-display font-bold glow-text mb-2">Join the Mission</h1>
+          <p className={`text-sm sm:text-base font-cyber ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Create your cyber agent profile</p>
         </motion.div>
 
         <motion.div initial={{ y: 20 }} animate={{ y: 0 }} transition={{ delay: 0.2 }}
-          className={`rounded-2xl p-6 border transition-colors duration-300
+          className={`rounded-2xl p-4 sm:p-6 border transition-colors duration-300
             ${isDark ? 'bg-slate-900 border-slate-700/60 shadow-xl' : 'bg-white border-slate-200 shadow-lg'}`}>
 
           <form onSubmit={handleSubmit} className="space-y-4">

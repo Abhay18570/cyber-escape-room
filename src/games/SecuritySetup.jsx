@@ -60,7 +60,7 @@ const SecuritySetup = () => {
     return (
       <AppLayout><div className="min-h-screen px-0">
   
-        <div className="container mx-auto px-4 py-12 flex items-center justify-center min-h-[80vh]">
+        <div className="container mx-auto px-4 md:px-8 py-8 lg:py-12 flex items-center justify-center min-h-[80vh]">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -70,15 +70,15 @@ const SecuritySetup = () => {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: 'spring' }}
-              className="inline-block p-6 bg-gradient-to-br from-cyber-blue to-cyan-500 rounded-3xl mb-6 shadow-neon-blue"
+              className="inline-block p-5 sm:p-6 bg-gradient-to-br from-cyber-blue to-cyan-500 rounded-3xl mb-6 shadow-neon-blue"
             >
-              <Trophy className="w-20 h-20 text-white" />
+              <Trophy className="w-14 h-14 sm:w-20 sm:h-20 text-white" />
             </motion.div>
             
-            <h2 className="text-4xl font-display font-bold glow-text mb-4">
+            <h2 className="text-2xl sm:text-4xl font-display font-bold glow-text mb-4">
               Security Expert!
             </h2>
-            <p className="text-2xl text-gray-300 mb-6 font-cyber">
+            <p className="text-lg sm:text-2xl text-gray-300 mb-6 font-cyber">
               Final Score: <span className="text-cyber-blue font-bold">150</span> / 150
             </p>
             <p className="text-gray-400 mb-8 font-cyber">
@@ -105,24 +105,24 @@ const SecuritySetup = () => {
     <AppLayout><div className="min-h-screen px-0">
 
       
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 md:px-8 py-8 lg:py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <h1 className="text-4xl font-display font-bold glow-text mb-2">
+          <h1 className="text-2xl sm:text-4xl font-display font-bold glow-text mb-2">
             Fix the Security Setup
           </h1>
-          <p className="text-gray-400 font-cyber">
+          <p className="text-sm sm:text-base text-gray-400 font-cyber">
             Click on all security vulnerabilities in the room
           </p>
         </motion.div>
 
         {/* Progress */}
         <div className="mb-8">
-          <div className="flex items-center justify-between mb-2">
-            <span className="font-cyber font-semibold text-gray-300">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+            <span className="font-cyber font-semibold text-sm sm:text-base text-gray-300">
               Found {foundVulnerabilities.size} of {securityVulnerabilities.length} vulnerabilities
             </span>
             <div className="flex items-center gap-2">
@@ -145,9 +145,9 @@ const SecuritySetup = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="cyber-card relative"
-            style={{ minHeight: '600px' }}
+            style={{ minHeight: 'clamp(420px, 80vw, 600px)' }}
           >
-            <h3 className="text-2xl font-display font-bold mb-6 text-center text-white">
+            <h3 className="text-xl sm:text-2xl font-display font-bold mb-6 text-center text-white">
               Security Room
             </h3>
 
@@ -186,13 +186,13 @@ const SecuritySetup = () => {
                             ],
                       }}
                       transition={{ duration: 2, repeat: Infinity }}
-                      className={`p-4 rounded-2xl ${
+                      className={`p-2.5 sm:p-4 rounded-2xl ${
                         isFound
                           ? 'bg-cyber-green/20 border-2 border-cyber-green'
                           : 'bg-cyber-red/20 border-2 border-cyber-red'
                       }`}
                     >
-                      <Icon className={`w-12 h-12 ${isFound ? 'text-cyber-green' : 'text-cyber-red'}`} />
+                      <Icon className={`w-8 h-8 sm:w-12 sm:h-12 ${isFound ? 'text-cyber-green' : 'text-cyber-red'}`} />
                     </motion.div>
 
                     {isFound && (
@@ -219,7 +219,7 @@ const SecuritySetup = () => {
           {/* Vulnerability Details */}
           <div className="space-y-4">
             <div className="cyber-card">
-              <h3 className="text-2xl font-display font-bold mb-4 text-white">
+              <h3 className="text-xl sm:text-2xl font-display font-bold mb-4 text-white">
                 Vulnerabilities Checklist
               </h3>
               
@@ -245,7 +245,7 @@ const SecuritySetup = () => {
                           <Icon className={`w-6 h-6 ${isFound ? 'text-cyber-green' : 'text-cyber-red'}`} />
                         </div>
                         <div className="flex-1">
-                          <div className="flex items-center justify-between mb-1">
+                          <div className="flex items-center justify-between gap-2 mb-1">
                             <h4 className="font-cyber font-semibold">{vuln.name}</h4>
                             {isFound && (
                               <motion.div

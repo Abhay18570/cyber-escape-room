@@ -107,7 +107,7 @@ const SmsScamDetector = () => {
     return (
       <AppLayout><div className="min-h-screen px-0">
   
-        <div className="container mx-auto px-4 py-12 flex items-center justify-center min-h-[85vh]">
+        <div className="container mx-auto px-4 md:px-8 py-8 lg:py-12 flex items-center justify-center min-h-[85vh]">
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
             className="cyber-card text-center max-w-xl w-full"
           >
@@ -116,8 +116,8 @@ const SmsScamDetector = () => {
             >
               <Trophy className="w-16 h-16 text-white" />
             </motion.div>
-            <h2 className="text-4xl font-display font-bold glow-text mb-2">100 Points!</h2>
-            <p className="text-xl font-cyber text-cyber-red font-bold mb-6">Mission Complete!</p>
+            <h2 className="text-2xl sm:text-4xl font-display font-bold glow-text mb-2">100 Points!</h2>
+            <p className="text-lg sm:text-xl font-cyber text-cyber-red font-bold mb-6">Mission Complete!</p>
             <div className="bg-cyber-dark/50 rounded-xl p-5 border border-cyber-red/30 mb-6">
               <p className="font-cyber text-lg text-white font-semibold">
                 "Excellent! You are very good at detecting SMS scams."
@@ -125,15 +125,15 @@ const SmsScamDetector = () => {
             </div>
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div className="bg-cyber-dark/60 rounded-xl p-4 border border-cyber-border">
-                <div className="text-3xl font-display font-bold text-cyber-red mb-1">{score}</div>
+                <div className="text-2xl sm:text-3xl font-display font-bold text-cyber-red mb-1">{score}</div>
                 <div className="text-xs font-cyber text-gray-400 uppercase tracking-wider">Final Score</div>
               </div>
               <div className="bg-cyber-dark/60 rounded-xl p-4 border border-cyber-border">
-                <div className="text-3xl font-display font-bold text-cyber-green mb-1">{accuracy}%</div>
+                <div className="text-2xl sm:text-3xl font-display font-bold text-cyber-green mb-1">{accuracy}%</div>
                 <div className="text-xs font-cyber text-gray-400 uppercase tracking-wider">Accuracy</div>
               </div>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
                 onClick={initGame}
                 className="flex-1 cyber-button bg-cyber-card border border-cyber-border text-white flex items-center justify-center gap-2 hover:border-cyber-red hover:text-cyber-red transition-colors"
@@ -159,21 +159,21 @@ const SmsScamDetector = () => {
   return (
     <AppLayout><div className="min-h-screen px-0">
 
-      <div className="container mx-auto px-4 py-8 max-w-5xl">
+      <div className="container mx-auto px-4 md:px-8 py-6 lg:py-8 max-w-5xl">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
-          <h1 className="text-3xl font-display font-bold glow-text mb-1">SMS Scam Detector</h1>
+          <h1 className="text-2xl sm:text-3xl font-display font-bold glow-text mb-1">SMS Scam Detector</h1>
           <p className="text-gray-400 font-cyber text-sm">Reach 100 points to win — earn 5 points for each correct answer</p>
         </motion.div>
 
         {/* Score Progress */}
         <div className="mb-6 cyber-card py-4">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
             <div className="flex items-center gap-3">
               <Trophy className="w-5 h-5 text-yellow-500" />
               <span className="font-display font-bold text-yellow-400 text-xl">{score}</span>
               <span className="text-gray-400 font-cyber text-sm">/ {WIN_SCORE} points</span>
             </div>
-            <div className="flex items-center gap-4 text-sm font-cyber">
+            <div className="flex items-center gap-4 text-sm sm:text-base font-cyber">
               <span className="text-cyber-green">{correctCount} correct</span>
               <span className="text-gray-400">{totalAnswered} answered</span>
             </div>
@@ -260,18 +260,18 @@ const SmsScamDetector = () => {
                 >
                   <div className="flex items-center gap-2 mb-5 p-3 bg-cyber-blue/10 rounded-xl border border-cyber-blue/20">
                     <Shield className="w-5 h-5 text-cyber-blue" />
-                    <h3 className="font-display font-bold text-white text-lg">Is this message safe or a scam?</h3>
+                    <h3 className="font-display font-bold text-white text-base sm:text-lg">Is this message safe or a scam?</h3>
                   </div>
                   <div className="space-y-3">
                     <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                       onClick={() => handleAnswer('safe')}
-                      className="w-full cyber-button-success flex items-center justify-center gap-3 py-4 text-lg"
+                      className="w-full cyber-button-success flex items-center justify-center gap-3 py-3 sm:py-4 text-sm sm:text-lg"
                     >
                       <CheckCircle className="w-6 h-6" /> Safe Message
                     </motion.button>
                     <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                       onClick={() => handleAnswer('scam')}
-                      className="w-full cyber-button-danger flex items-center justify-center gap-3 py-4 text-lg"
+                      className="w-full cyber-button-danger flex items-center justify-center gap-3 py-3 sm:py-4 text-sm sm:text-lg"
                     >
                       <AlertTriangle className="w-6 h-6" /> Scam Alert
                     </motion.button>
@@ -287,14 +287,14 @@ const SmsScamDetector = () => {
                       {isCorrect ? <CheckCircle className="w-7 h-7 text-cyber-green" /> : <XCircle className="w-7 h-7 text-cyber-red" />}
                     </div>
                     <div>
-                      <div className={`text-2xl font-display font-bold ${isCorrect ? 'text-cyber-green' : 'text-cyber-red'}`}>
+                      <div className={`text-xl sm:text-2xl font-display font-bold ${isCorrect ? 'text-cyber-green' : 'text-cyber-red'}`}>
                         {isCorrect ? 'Correct!' : 'Incorrect'}
                       </div>
                       <div className="text-gray-400 font-cyber text-sm">
                         {isCorrect ? `+${POINTS_PER_CORRECT} points → ${Math.min(score, WIN_SCORE)} total` : '0 points'}
                       </div>
                     </div>
-                    <div className="ml-auto">
+                    <div className="ml-auto flex-shrink-0">
                       <span className={`text-sm font-cyber px-2.5 py-1 rounded-lg font-bold border ${
                         currentMsg.type === 'scam'
                           ? 'bg-cyber-red/20 text-cyber-red border-cyber-red/30'
@@ -317,7 +317,7 @@ const SmsScamDetector = () => {
                   {score >= WIN_SCORE ? (
                     <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                       onClick={() => setGameCompleted(true)}
-                      className="w-full cyber-button-primary flex items-center justify-center gap-2 text-lg"
+                      className="w-full cyber-button-primary flex items-center justify-center gap-2 text-sm sm:text-lg"
                     >
                       <Trophy className="w-5 h-5" /> See Final Results!
                     </motion.button>

@@ -55,7 +55,7 @@ const Dashboard = () => {
     .slice(0, 3);
 
   const card = isDark
-    ? 'bg-slate-900 border border-slate-700/60 rounded-2xl'
+    ? 'bg-slate-900 border border-slate-700/60 rounded-2xl shadow-sm shadow-slate-950/30'
     : 'bg-white border border-slate-200 rounded-2xl shadow-sm';
 
   const barColors = { blue:'from-cyan-500 to-blue-600', green:'from-emerald-500 to-green-600', purple:'from-purple-500 to-violet-600', red:'from-rose-500 to-red-600' };
@@ -67,19 +67,19 @@ const Dashboard = () => {
 
   return (
     <AppLayout>
-      <div className={`min-h-screen px-4 py-8 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-slate-50'}`}>
+      <div className={`min-h-screen px-4 py-6 md:px-6 lg:px-8 lg:py-8 transition-colors duration-300 ${isDark ? 'bg-slate-950' : 'bg-slate-50'}`}>
 
         {/* Header */}
-        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-          <div className="flex items-center gap-4 mb-2">
-            <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl shadow-lg shadow-cyan-500/25">
-              <BarChart2 className="w-6 h-6 text-white" />
+        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mb-6 lg:mb-8">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-3 sm:gap-4 mb-2 text-center sm:text-left">
+            <div className="p-2.5 sm:p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl shadow-lg shadow-cyan-500/25">
+              <BarChart2 className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
             <div>
-              <h1 className={`text-2xl lg:text-3xl font-display font-bold tracking-wide ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>
+              <h1 className={`text-xl sm:text-2xl lg:text-3xl font-display font-bold tracking-wide leading-tight ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>
                 Welcome back, <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">{user?.username}</span>
               </h1>
-              <p className={`text-sm font-cyber mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+              <p className={`text-sm sm:text-base font-cyber mt-1 sm:mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                 Your personal cybersecurity training dashboard
               </p>
             </div>
@@ -87,7 +87,7 @@ const Dashboard = () => {
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 lg:mb-8">
           <AnalyticsCard icon={Trophy}      label="Total Points"        value={totalScore}                         accent="blue"   delay={0.05} />
           <AnalyticsCard icon={CheckCircle} label="Modules Completed"   value={`${completedGames.length}/${totalGames}`} accent="green"  delay={0.1} />
           <AnalyticsCard icon={Target}      label="Overall Progress"    value={`${completionPercentage}%`}         accent="purple" delay={0.15} />
@@ -95,13 +95,13 @@ const Dashboard = () => {
         </div>
 
         {/* Progress Bar */}
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className={`${card} p-5 mb-8`}>
-          <div className="flex items-center justify-between mb-3">
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className={`${card} p-4 sm:p-5 mb-6 lg:mb-8`}>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
             <div className="flex items-center gap-2">
               <TrendingUp className={`w-4 h-4 ${isDark ? 'text-cyan-400' : 'text-blue-500'}`} />
-              <span className={`text-sm font-cyber font-semibold ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>Training Progress</span>
+              <span className={`text-sm sm:text-base font-cyber font-semibold ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>Training Progress</span>
             </div>
-            <span className={`text-sm font-display font-bold ${isDark ? 'text-cyan-400' : 'text-blue-600'}`}>{completionPercentage}% Complete</span>
+            <span className={`text-sm sm:text-base font-display font-bold ${isDark ? 'text-cyan-400' : 'text-blue-600'}`}>{completionPercentage}% Complete</span>
           </div>
           <div className={`h-2 rounded-full overflow-hidden ${isDark ? 'bg-slate-800' : 'bg-slate-100'}`}>
             <motion.div initial={{ width: 0 }} animate={{ width: `${completionPercentage}%` }} transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -110,12 +110,12 @@ const Dashboard = () => {
           <p className={`text-xs font-cyber mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{completedGames.length} of {totalGames} security modules mastered</p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 lg:mb-8">
           {/* Module Scores */}
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className={`${card} p-5 lg:col-span-2`}>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className={`${card} w-full p-4 sm:p-5 lg:col-span-2`}>
             <div className="flex items-center gap-2 mb-4">
               <BarChart2 className={`w-4 h-4 ${isDark ? 'text-cyan-400' : 'text-blue-500'}`} />
-              <h2 className={`text-sm font-display font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>Module Scores</h2>
+              <h2 className={`text-sm sm:text-base font-display font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>Module Scores</h2>
             </div>
             <div className="space-y-3">
               {gameStats.map((g, i) => {
@@ -126,14 +126,14 @@ const Dashboard = () => {
                 const grad = barColors[g.color] || barColors.blue;
                 return (
                   <motion.div key={g.id} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05 * i + 0.3 }}>
-                    <div className="flex items-center justify-between mb-1">
-                      <div className="flex items-center gap-2">
+                    <div className="flex items-center justify-between gap-3 mb-1">
+                      <div className="flex items-center gap-2 min-w-0">
                         <Icon className={`w-3.5 h-3.5 flex-shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-500'}`} />
-                        <span className={`text-xs font-cyber font-medium ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{meta?.label || g.title}</span>
+                        <span className={`text-sm lg:text-base font-cyber font-medium truncate ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{meta?.label || g.title}</span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-shrink-0">
                         {g.completed && <CheckCircle className="w-3 h-3 text-emerald-500" />}
-                        <span className={`text-xs font-display font-bold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{g.score}/{maxScore}</span>
+                        <span className={`text-sm lg:text-base font-display font-bold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{g.score}/{maxScore}</span>
                       </div>
                     </div>
                     <div className={`h-1.5 rounded-full overflow-hidden ${isDark ? 'bg-slate-800' : 'bg-slate-100'}`}>
@@ -147,10 +147,10 @@ const Dashboard = () => {
           </motion.div>
 
           {/* Recent Activity */}
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className={`${card} p-5`}>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className={`${card} p-4 sm:p-5`}>
             <div className="flex items-center gap-2 mb-4">
               <Clock className={`w-4 h-4 ${isDark ? 'text-cyan-400' : 'text-blue-500'}`} />
-              <h2 className={`text-sm font-display font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>Recent Activity</h2>
+              <h2 className={`text-sm sm:text-base font-display font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>Recent Activity</h2>
             </div>
             {recentActivity.length === 0 ? (
               <div className={`text-center py-8 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
@@ -184,15 +184,15 @@ const Dashboard = () => {
         </div>
 
         {/* Badges */}
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className={`${card} p-5 mb-8`}>
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className={`${card} p-4 sm:p-5 mb-6 lg:mb-8`}>
           <div className="flex items-center gap-2 mb-4">
             <Award className={`w-4 h-4 ${isDark ? 'text-amber-400' : 'text-amber-500'}`} />
-            <h2 className={`text-sm font-display font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
+            <h2 className={`text-sm sm:text-base font-display font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
               Achievements
               <span className={`ml-2 text-xs font-cyber font-normal ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{earnedBadges.length}/{BADGE_DEFS.length} earned</span>
             </h2>
           </div>
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
             {BADGE_DEFS.map((b, i) => {
               const earned = earnedBadges.some(e => e.id === b.id);
               const Icon = b.icon;

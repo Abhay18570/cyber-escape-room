@@ -105,7 +105,7 @@ const SecurityMaze = () => {
     return (
       <AppLayout><div className="min-h-screen px-0">
   
-        <div className="container mx-auto px-4 py-12 flex items-center justify-center min-h-[80vh]">
+        <div className="container mx-auto px-4 md:px-8 py-8 lg:py-12 flex items-center justify-center min-h-[80vh]">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -115,15 +115,15 @@ const SecurityMaze = () => {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: 'spring' }}
-              className="inline-block p-6 bg-gradient-to-br from-cyber-green to-emerald-500 rounded-3xl mb-6 shadow-neon-green"
+              className="inline-block p-5 sm:p-6 bg-gradient-to-br from-cyber-green to-emerald-500 rounded-3xl mb-6 shadow-neon-green"
             >
-              <Trophy className="w-20 h-20 text-white" />
+              <Trophy className="w-14 h-14 sm:w-20 sm:h-20 text-white" />
             </motion.div>
             
-            <h2 className="text-4xl font-display font-bold glow-text mb-4">
+            <h2 className="text-2xl sm:text-4xl font-display font-bold glow-text mb-4">
               Maze Conquered!
             </h2>
-            <p className="text-2xl text-gray-300 mb-6 font-cyber">
+            <p className="text-lg sm:text-2xl text-gray-300 mb-6 font-cyber">
               Final Score: <span className="text-cyber-green font-bold">{score}</span> / 200
             </p>
             <p className="text-gray-400 mb-8 font-cyber">
@@ -150,16 +150,16 @@ const SecurityMaze = () => {
     <AppLayout><div className="min-h-screen px-0">
 
       
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 md:px-8 py-8 lg:py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <h1 className="text-4xl font-display font-bold glow-text mb-2">
+          <h1 className="text-2xl sm:text-4xl font-display font-bold glow-text mb-2">
             Security Knowledge Maze
           </h1>
-          <p className="text-gray-400 font-cyber">
+          <p className="text-sm sm:text-base text-gray-400 font-cyber">
             Navigate by answering cybersecurity questions correctly
           </p>
         </motion.div>
@@ -167,7 +167,7 @@ const SecurityMaze = () => {
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Maze Grid */}
           <div className="cyber-card">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
               <div className="flex items-center gap-2">
                 <Compass className="w-6 h-6 text-cyber-blue" />
                 <span className="font-cyber font-semibold">Navigate the Maze</span>
@@ -178,7 +178,7 @@ const SecurityMaze = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-5 gap-2 mb-6">
+            <div className="grid grid-cols-5 gap-1.5 sm:gap-2 mb-6">
               {Array.from({ length: mazeSize }).map((_, y) =>
                 Array.from({ length: mazeSize }).map((_, x) => {
                   const isPlayer = playerPos.x === x && playerPos.y === y;
@@ -203,7 +203,7 @@ const SecurityMaze = () => {
                         <motion.div
                           animate={{ scale: [1, 1.2, 1] }}
                           transition={{ duration: 1, repeat: Infinity }}
-                          className="w-8 h-8 bg-white rounded-full"
+                          className="w-5 h-5 sm:w-8 sm:h-8 bg-white rounded-full"
                         />
                       )}
                       {isExit && (
@@ -222,7 +222,7 @@ const SecurityMaze = () => {
               <div className="font-cyber font-semibold text-sm mb-2 text-gray-400">
                 Controls:
               </div>
-              <div className="grid grid-cols-2 gap-2 text-sm font-cyber">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm sm:text-base font-cyber">
                 <div className="flex items-center gap-2">
                   <ArrowUp className="w-4 h-4 text-cyber-blue" />
                   <span>Up Arrow</span>
@@ -250,12 +250,12 @@ const SecurityMaze = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
               >
-                <h3 className="text-2xl font-display font-bold mb-6 text-cyber-blue">
+                <h3 className="text-xl sm:text-2xl font-display font-bold mb-6 text-cyber-blue">
                   Answer to Continue
                 </h3>
                 
                 <div className="bg-cyber-dark/50 p-4 rounded-lg mb-6">
-                  <p className="font-cyber text-lg">{securityQuestions[currentQuestion].question}</p>
+                  <p className="font-cyber text-sm sm:text-lg">{securityQuestions[currentQuestion].question}</p>
                 </div>
 
                 <div className="space-y-3">
@@ -278,11 +278,11 @@ const SecurityMaze = () => {
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="inline-block p-6 bg-gradient-to-br from-cyber-blue to-cyan-500 rounded-3xl mb-4 shadow-neon-blue"
+                  className="inline-block p-5 sm:p-6 bg-gradient-to-br from-cyber-blue to-cyan-500 rounded-3xl mb-4 shadow-neon-blue"
                 >
-                  <Compass className="w-16 h-16 text-white" />
+                  <Compass className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
                 </motion.div>
-                <h3 className="text-2xl font-display font-bold mb-2 text-white">
+                <h3 className="text-xl sm:text-2xl font-display font-bold mb-2 text-white">
                   Use Arrow Keys
                 </h3>
                 <p className="text-gray-400 font-cyber">
